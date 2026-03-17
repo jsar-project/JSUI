@@ -44,7 +44,7 @@ jobs:
       - name: Build docs
         working-directory: ink/docs
         env:
-          BASE_PATH: /JSUI/
+          BASE_PATH: /jsui/
         run: npm run docs:build
 
       - name: Set artifact path
