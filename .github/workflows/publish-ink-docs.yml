@@ -1,6 +1,9 @@
 name: Publish Ink Docs to GH Pages
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
