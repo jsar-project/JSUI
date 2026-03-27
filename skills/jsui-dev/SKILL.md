@@ -1,0 +1,365 @@
+---
+name: "jsui-dev"
+description: "Specialized agent for developing JSUI applications. Invoke when writing JSUI code, needing API references for jsui/wx, or debugging JSUI applications."
+---
+
+# JSUI Agent Developer Guide
+
+This guide provides independent and comprehensive context for AI agents developing JSUI applications. It includes project structure, SFC `.ink` support specifications, and standard API references, designed to help Large Language Models (LLMs) generate accurate JSUI pages and logic code.
+
+## 1. Project Structure
+
+A standard JSUI application project typically contains the following core files:
+
+- `AGENTS.md`: The agent manifest, defining the agent's identity and capabilities.
+- `app.json`: Global configuration, including page routes, window settings, etc.
+- `app.js`: Application lifecycle and global logic.
+- `pages/`: Page directory containing the application's pages, primarily using the Single File Component (SFC) `.ink` format.
+- `assets/`: Directory for storing static resources like images and audio.
+
+### 1.1 Agent Manifest (AGENTS.md)
+
+The manifest file defines the agent's basic information and required permissions/skills:
+
+```markdown
+# Agent Manifest
+
+## Identity
+- **Name**: My JSUI Agent
+- **Version**: 1.0.0
+- **Description**: A brief application description.
+- **Author**: Developer Name
+
+## Capabilities
+- **Permissions**:
+  - camera
+  - microphone
+  - network
+  - audio
+- **Skills**:
+  - weather-lookup
+```
+
+### 1.2 Global Configuration (app.json)
+
+Defines application page paths and global UI styles:
+
+```json
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "My JSUI Agent",
+    "viewport": {
+      "width": "device-width"
+    }
+  }
+}
+```
+
+### 1.3 Application Registration (app.js)
+
+JSUI uses an ES module-based registration system, registering the application by exporting a default configuration object:
+
+```javascript
+export default {
+  onLaunch() {
+    console.log('App Launch');
+  },
+  globalData: {
+    userInfo: null
+  }
+};
+```
+
+### 1.4 Page Configuration (page.json)
+
+In JSUI, each page acts as a Model Context Protocol (MCP) UI component. The configuration for each page is defined in its respective `page.json` (or within the `<script def>` block of an `.ink` file). This configuration declares the page's capabilities and the expected input parameters for rendering.
+
+Key fields in page configuration:
+- `description`: A clear, natural language description of what the page UI represents or what task it accomplishes. This helps the AI or system understand the page's purpose.
+- `schema`: Defines the expected input data structure for rendering the UI.
+  - `data`: A JSON Schema object specifying the properties, types, and required fields needed to populate the page's initial state.
+
+**Example Page Configuration:**
+
+```json
+{
+  "navigationBarTitleText": "Weather Card",
+  "description": "A UI component that displays the current weather conditions for a specific city.",
+  "schema": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "The name of the city"
+        },
+        "temperature": {
+          "type": "number",
+          "description": "Current temperature in Celsius"
+        },
+        "condition": {
+          "type": "string",
+          "enum": ["sunny", "rainy", "cloudy", "snowy"]
+        }
+      },
+      "required": ["city", "temperature", "condition"]
+    }
+  }
+}
+```
+
+## 2. Single File Component (SFC) `.ink` Specification
+
+In JSUI, page development is recommended to use the Single File Component (SFC) format, which is the `.ink` file. This format centralizes the page's configuration, logic, structure, and style in a single file.
+
+A standard `.ink` file structure contains four main tag blocks:
+
+1. `<script def>`: Used to define page-level JSON configuration, such as the navigation bar title.
+2. `<script setup>`: Contains the page's JavaScript logic code, exporting the page configuration object (including `data`, lifecycle hooks, custom methods, etc.) via `export default`.
+3. `<page>`: The page's template structure (WXML-like syntax).
+4. `<style>`: The page's stylesheet (CSS).
+
+### 2.1 `.ink` Example Code:
+
+```html
+<script def>
+{
+  "navigationBarTitleText": "Home"
+}
+</script>
+
+<script setup>
+import wx from 'wx';
+
+export default {
+  data: {
+    greeting: 'Hello JSUI!'
+  },
+  onLoad() {
+    console.log('Page loaded');
+  },
+  handleTap() {
+    this.setData({
+      greeting: 'Hello, World!'
+    });
+  }
+}
+</script>
+
+<page>
+  <view class="container">
+    <text class="title">{{ greeting }}</text>
+    <button bindtap="handleTap">Click Me</button>
+  </view>
+</page>
+
+<style>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+</style>
+```
+
+## 3. WXML (WeiXin Markup Language) & Components
+
+In JSUI, the structure of a page is described using WXML (WeiXin Markup Language), which is used within the `<page>` tag of an `.ink` file (or a standalone `.wxml` file). It allows you to build user interfaces using components, data binding, and conditional rendering.
+
+### 3.1 Basic Syntax and Data Binding
+
+WXML uses double curly braces `{{ }}` for data binding. You can bind properties from your page's `data` object directly to the UI.
+
+```html
+<!-- Text binding -->
+<view>{{ message }}</view>
+
+<!-- Attribute binding -->
+<view class="{{ dynamicClass }}"></view>
+
+<!-- Expression binding -->
+<view>{{ count + 1 }}</view>
+```
+
+### 3.2 Directives (Conditional Rendering)
+
+JSUI supports conditional rendering using the `ink:if`, `ink:elif`, and `ink:else` directives to control whether a component is rendered based on a condition.
+
+```html
+<view ink:if="{{condition === 1}}"> Rendered if condition is 1 </view>
+<view ink:elif="{{condition === 2}}"> Rendered if condition is 2 </view>
+<view ink:else> Rendered otherwise </view>
+```
+
+> **Important Note:** JSUI's WXML implementation currently **does not support list rendering** (e.g., `wx:for` or `ink:for` are NOT supported). If you need to render lists, you should handle the logic manually in JavaScript or flatten the UI structure as needed.
+
+### 3.3 Built-in Components
+
+JSUI provides a set of built-in components that you can use within your WXML templates. These components are mapped to native implementations for optimal performance.
+
+- **`<view>`**: The fundamental UI building block, similar to `<div>` in HTML. Used for layout and styling.
+- **`<text>`**: Used to display text content. Similar to `<span>` in HTML.
+- **`<image>`**: Used to display images.
+- **`<button>`**: A standard clickable button component.
+- **`<canvas>`**: A component for custom 2D drawing.
+- **`<scroll-view>`**: A scrollable view region.
+- **`<chart>`**: A component for rendering charts (supports Line, Area, Pie, and Radar charts).
+
+## 4. WXSS (WeiXin Style Sheets)
+
+WXSS is a style language used to describe the visual presentation of components. It is highly compatible with standard CSS and is used within the `<style>` block of an `.ink` file (or a standalone `.wxss` file).
+
+### 4.1 Features
+
+WXSS extends standard CSS with features tailored for mobile and wearable devices:
+
+- **`@import`**: You can use the `@import` statement to import external style sheets.
+
+```css
+@import "./common.wxss";
+
+.box {
+  width: 240px;
+  height: 100px;
+  background-color: #40FF5E;
+}
+```
+
+### 4.2 Selectors
+
+JSUI supports most standard CSS selectors:
+- **Class Selector (`.class`)**: The recommended way to style components.
+- **ID Selector (`#id`)**.
+- **Type Selector (`element`)**: e.g., `view`, `text`.
+- **Combinators**: Grouping (`A, B`), Descendant (`A B`), Child (`A > B`).
+
+*Recommendation: Prioritize using Class Selectors to ensure optimal rendering performance.*
+
+### 4.3 Flexbox Layout
+
+JSUI's view engine provides robust support for Flexbox. It is the primary and recommended method for building responsive layouts in JSUI.
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+```
+
+## 5. Design Guidelines
+
+When developing JSUI applications, especially for wearable devices, it is crucial to follow these design guidelines to ensure a consistent and user-friendly experience.
+
+### 5.1 Dimensions and Layout
+
+- **Width**: The application width is strictly **480px**.
+- **Height**: The recommended application height is between **120px and 380px**. Avoid creating overly tall pages that require excessive scrolling.
+- **Card Style**: It is highly recommended to use a **Card Style** layout for each page. This provides a clear boundary and better visual focus in the spatial environment.
+- **Border Radius**: The recommended border radius (e.g., for cards, buttons, and images) is **12px**.
+
+### 5.2 Color Palette
+
+- **Primary Color**: Use `#40FF5E` as the primary brand/action color.
+  - 100% Opacity: `#40FF5E` (Main elements, active states)
+  - 60% Opacity: `rgba(64, 255, 94, 0.6)` (Secondary elements, hover states)
+  - 40% Opacity: `rgba(64, 255, 94, 0.4)` (Background highlights, disabled states)
+
+### 5.3 Prohibitions
+
+- 🚫 **DO NOT use large areas of solid color blocks.** This can be visually overwhelming and uncomfortable on wearable displays. Keep backgrounds subtle and use colors primarily for accents, text, and interactive elements.
+
+## 6. JSUI API Reference
+
+JSUI aims to provide a development experience that conforms to modern Web standards while also maintaining compatibility with the WeChat Mini Program ecosystem to facilitate smooth migration and code reuse. The APIs are divided into two main categories: **Web APIs** and **WeChat Compatible APIs**.
+
+### 6.1 Web APIs
+
+JSUI supports the WinterCG (Web-interoperable Runtimes Community Group) Minimum Common Web API and several other critical Web standards, optimized for wearable devices.
+
+- **Console API**: Standard debugging output interface (`console.log`, `info`, `warn`, `error`, `debug`, `group`, `groupEnd`).
+- **Window API**: Basic global environment interfaces (`window`, `self`, `global`, `setTimeout`, `setInterval`, `clearTimeout`, `clearInterval`, `atob`, `btoa`).
+- **URL API**: Standard URL parsing and manipulation (`URL`, `URLSearchParams`).
+- **Encoding API**: Text encoding and decoding (`TextEncoder`, `TextDecoder`).
+- **Crypto API**: Web Crypto API for cryptographic operations (`crypto.subtle`, `crypto.randomUUID()`).
+- **Performance API**: For monitoring agent runtime performance (`performance.now()`, `performance.timeOrigin`).
+- **Storage API**: Web-like local data persistence (`localStorage`).
+- **Canvas API**: Provides 2D drawing capabilities with spatial rendering support.
+- **Speech API**: Speech recognition and synthesis (`speechSynthesis`, `SpeechSynthesisUtterance`).
+- **Barcode Detection API**: Used for identifying barcodes and QR codes in the environment (`BarcodeDetector`).
+
+#### Web API Examples
+
+**Barcode Detection**
+```javascript
+import { BarcodeDetector } from 'barcode';
+const detector = new BarcodeDetector({ formats: ['qr_code'] });
+const results = await detector.detect({ data, width, height });
+```
+
+**Speech Synthesis**
+```javascript
+const utterance = new SpeechSynthesisUtterance('Hello, welcome to JSUI');
+utterance.lang = 'en-US';
+utterance.rate = 1.0;
+speechSynthesis.speak(utterance);
+```
+
+### 6.2 WeChat Compatible APIs (`wx.*`)
+
+To allow developers to reuse existing Mini Program code and resources, JSUI provides a set of APIs compatible with WeChat Mini Programs.
+
+#### Base / System
+- `wx.canIUse(schema)`: Check API support.
+- `wx.getWindowInfo()`: Get screen metrics (`pixelRatio`, `screenWidth`, `windowHeight`, `safeArea`).
+- `wx.getSystemInfoSync()`: Alias for `getWindowInfo`.
+- `wx.exitMiniProgram()`: Exit the application.
+
+#### UI & Canvas
+- `wx.setBackgroundColor(options)`: Set background color.
+- Canvas-related APIs for UI rendering.
+
+#### Networking
+- `wx.request(options)`: Initiate an HTTPS network request. Returns a `RequestTask`.
+  - **Options**: `url`, `method`, `data`, `header`, `responseType`, `dataType`, `success`, `fail`.
+- `wx.connectSocket(options)` / `wx.createSocket(options)`: Create a WebSocket connection. Returns a `SocketTask`.
+
+#### Media
+- `wx.media.getRecorderManager()`: Get the globally unique recorder manager for audio recording.
+- `wx.media.createCameraContext()`: Create a camera context for taking photos.
+  - `takePhoto({ quality: 'high' | 'normal' | 'low' })`: Returns a Promise containing image data.
+
+#### Speech
+- `wx.speech.playTTS(options)`: Text-to-Speech (TTS) playback.
+- `wx.speech.startRecognition(options)`: Start speech recognition.
+
+#### Router
+- Navigation and routing APIs compatible with the Mini Program routing system.
+
+## 7. Usage Examples (WeChat APIs)
+
+### Take a Photo with Camera
+```javascript
+import wx from 'wx';
+
+const camera = wx.media.createCameraContext();
+const photo = await camera.takePhoto({ quality: 'high' });
+console.log('Image data size:', photo.data.byteLength);
+```
+
+### Crypto & UUID Generation
+```javascript
+const uuid = crypto.randomUUID();
+const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('hello JSUI'));
+```

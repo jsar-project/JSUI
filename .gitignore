@@ -1,0 +1,4 @@
+node_modules/
+
+.trae/specs/
+.trae/documents/

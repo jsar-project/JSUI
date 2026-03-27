@@ -1,0 +1,21 @@
+{
+  "name": "jsui-dev-tools",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "JSUI is a *JavaScript User Interface* agentic runtime designed for the AI glasses with Display. It empowers developers to build intelligent, interactive, and context-aware agents with GUI seamlessly.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsar-project/jsai.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jsar-project/jsai/issues"
+  },
+  "homepage": "https://github.com/jsar-project/jsai#readme"
+}
