@@ -207,13 +207,26 @@ JSUI supports conditional rendering using the `ink:if`, `ink:elif`, and `ink:els
 
 JSUI provides a set of built-in components that you can use within your WXML templates. These components are mapped to native implementations for optimal performance.
 
-- **`<view>`**: The fundamental UI building block, similar to `<div>` in HTML. Used for layout and styling.
-- **`<text>`**: Used to display text content. Similar to `<span>` in HTML.
-- **`<image>`**: Used to display images.
+For parameter-by-parameter documentation, event behavior, content model notes, and examples, see [components.md](./components.md). The reference there is intentionally aligned with the current component registry and implementation details in `ink-builtin-components`.
+
+- **`<view>`**: The fundamental layout container, similar to `<div>` in HTML.
+- **`<swiper>`**: A swipeable container currently backed by the base view implementation.
+- **`<swiper-item>`**: An item inside `<swiper>`, currently backed by the base view implementation.
+- **`<fragment>`**: A lightweight grouping container currently backed by the base view implementation.
+- **`<text>`**: Displays text content. Similar to `<span>` in HTML.
+- **`<icon>`**: An icon-like text element currently rendered through the text component implementation.
+- **`<image>`**: Displays local or remote images.
 - **`<button>`**: A standard clickable button component.
 - **`<canvas>`**: A component for custom 2D drawing.
-- **`<scroll-view>`**: A scrollable view region.
-- **`<chart>`**: A component for rendering charts (supports Line, Area, Pie, and Radar charts).
+- **`<scroll-view>`**: A scrollable container for content that exceeds the visible area.
+- **`<chart>`**: A chart component supporting Line, Area, Pie, and Radar charts.
+- **`<input>`**: A focusable single-line text input component.
+- **`<textarea>`**: A focusable multi-line text input component.
+- **`<switch>`**: A toggle control for boolean on/off state.
+- **`<lottie-view>`**: Renders Lottie animations from inline JSON, local files, or remote URLs.
+- **`<streamdown>`**: Renders Markdown-style streaming text content with optional streaming caret behavior.
+- **`<a2ui>`**: A specialized component for rendering agent-generated UI commands dynamically.
+- **`<error-state>`**: A compact status component that displays an optional icon with a message.
 
 ## 4. WXSS (WeiXin Style Sheets)
 

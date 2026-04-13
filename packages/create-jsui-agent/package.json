@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "bin": {
     "create-jsui-agent": "./index.js"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
