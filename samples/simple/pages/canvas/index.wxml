@@ -1,0 +1,6 @@
+<view class="container">
+  <view class="page-title">Canvas</view>
+  <view class="card">
+    <canvas id="myCanvas" width="400" height="400" class="canvas"></canvas>
+  </view>
+</view>

@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.section {
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+.label {
+  color: black;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.box-container {
+  width: 100px;
+  height: 100px;
+  background-color: #ddd;
+  border: 1px dashed #999;
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  background-color: #007aff;
+  opacity: 0.8;
+}
+
+.translate {
+  transform: translate(50px, 20px);
+}
+
+.rotate {
+  transform: rotate(45deg);
+}
+
+.scale {
+  transform: scale(1.5, 0.5);
+}
+
+.skew {
+  transform: skew(30deg, 10deg);
+}
+
+.matrix {
+  transform: matrix(1, 0.2, 0.2, 1, 0, 0);
+}
+
+.multiple {
+  transform: translate(20px, 20px) rotate(30deg);
+}
+
+.origin-top-left {
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+}

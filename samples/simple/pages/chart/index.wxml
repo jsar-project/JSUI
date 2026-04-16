@@ -1,0 +1,106 @@
+<view class="container">
+  <view class="page-title">Chart Component</view>
+
+  <view class="card chart-container">
+    <text class="chart-title">Line Chart (Blue, Smooth, Average)</text>
+    <chart type="line" series="{{lineSeries}}" data="{{lineData}}" width="350" height="150" class="chart" animate="true" color="#007AFF" smooth="true" show-average="true"></chart>
+  </view>
+
+  <view class="card chart-container">
+    <text class="chart-title">Area Chart (Red, Straight)</text>
+    <chart type="area" series="{{areaSeries}}" data="{{areaData}}" width="350" height="50" class="chart" animate="true" color="#FF3B30" smooth="false"></chart>
+  </view>
+
+  <view class="chart-container">
+    <text class="chart-title">Realtime Style Line (Axis Viewport)</text>
+    <view class="mode-row">
+      <text class="mode-label">Update Mode: {{updateMode}}</text>
+      <view class="mode-toggle" bindtap="toggleUpdateMode">Toggle</view>
+    </view>
+    <view class="price-chart-frame">
+      <chart
+        type="{{chartProps.type}}"
+        series="{{chartProps.series}}"
+        data="{{chartProps.data}}"
+        animate="{{chartProps.animate}}"
+        y-axis="{{chartProps.yAxis}}"
+        x-axis="{{chartProps.xAxis}}"
+        width="{{priceChartWidth}}"
+        height="{{priceChartHeight}}"
+        class="chart"
+      ></chart>
+    </view>
+  </view>
+
+  <view class="chart-container">
+    <text class="chart-title">Viewport Scenarios (minimum / maximum)</text>
+
+    <text class="chart-subtitle">Opening (1 / 240)</text>
+    <view class="price-chart-frame">
+      <chart
+        type="{{intradayWindowSamples.opening.type}}"
+        series="{{intradayWindowSamples.opening.series}}"
+        data="{{intradayWindowSamples.opening.data}}"
+        animate="{{intradayWindowSamples.opening.animate}}"
+        y-axis="{{intradayWindowSamples.opening.yAxis}}"
+        x-axis="{{intradayWindowSamples.opening.xAxis}}"
+        width="{{intradaySampleWidth}}"
+        height="{{intradaySampleHeight}}"
+        class="chart"
+      ></chart>
+    </view>
+
+    <text class="chart-subtitle">Mid Session (120 / 240)</text>
+    <view class="price-chart-frame">
+      <chart
+        type="{{intradayWindowSamples.midSession.type}}"
+        series="{{intradayWindowSamples.midSession.series}}"
+        data="{{intradayWindowSamples.midSession.data}}"
+        animate="{{intradayWindowSamples.midSession.animate}}"
+        y-axis="{{intradayWindowSamples.midSession.yAxis}}"
+        x-axis="{{intradayWindowSamples.midSession.xAxis}}"
+        width="{{intradaySampleWidth}}"
+        height="{{intradaySampleHeight}}"
+        class="chart"
+      ></chart>
+    </view>
+
+    <text class="chart-subtitle">Full Window (240 / 240)</text>
+    <view class="price-chart-frame">
+      <chart
+        type="{{intradayWindowSamples.fullWindow.type}}"
+        series="{{intradayWindowSamples.fullWindow.series}}"
+        data="{{intradayWindowSamples.fullWindow.data}}"
+        animate="{{intradayWindowSamples.fullWindow.animate}}"
+        y-axis="{{intradayWindowSamples.fullWindow.yAxis}}"
+        x-axis="{{intradayWindowSamples.fullWindow.xAxis}}"
+        width="{{intradaySampleWidth}}"
+        height="{{intradaySampleHeight}}"
+        class="chart"
+      ></chart>
+    </view>
+
+    <text class="chart-subtitle">Rolling Window (latest 240 / 320)</text>
+    <view class="price-chart-frame">
+      <chart
+        type="{{intradayWindowSamples.rollingWindow.type}}"
+        series="{{intradayWindowSamples.rollingWindow.series}}"
+        data="{{intradayWindowSamples.rollingWindow.data}}"
+        animate="{{intradayWindowSamples.rollingWindow.animate}}"
+        y-axis="{{intradayWindowSamples.rollingWindow.yAxis}}"
+        x-axis="{{intradayWindowSamples.rollingWindow.xAxis}}"
+        width="{{intradaySampleWidth}}"
+        height="{{intradaySampleHeight}}"
+        class="chart"
+      ></chart>
+    </view>
+  </view>
+
+  <view class="card chart-container">
+    <text class="chart-title">Pie &amp; Radar Charts (Custom Colors)</text>
+    <view class="flex-row">
+      <chart type="pie" series="value" data="{{pieData}}" width="170" height="170" class="chart-pie" color="#FFCC00"></chart>
+      <chart type="radar" series="value" data="{{radarData}}" width="170" height="170" class="chart-radar" color="#5856D6"></chart>
+    </view>
+  </view>
+</view>

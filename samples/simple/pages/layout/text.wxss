@@ -1,0 +1,28 @@
+.text-left {
+  text-align: left;
+  color: #646566;
+  font-size: 14px;
+  padding: 4px 0;
+}
+.text-center {
+  text-align: center;
+  color: #646566;
+  font-size: 14px;
+  padding: 4px 0;
+}
+.text-right {
+  text-align: right;
+  color: #646566;
+  font-size: 14px;
+  padding: 4px 0;
+}
+.inherited-center {
+  text-align: center;
+  color: #323233;
+  font-size: 14px;
+  border-radius: 8px;
+}
+.inherited-red {
+  color: #ee0a24;
+  font-size: 14px;
+}

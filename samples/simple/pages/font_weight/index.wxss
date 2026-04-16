@@ -1,0 +1,37 @@
+.container {
+  padding: 20px;
+}
+.item {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.normal {
+  font-weight: normal;
+}
+.bold {
+  font-weight: bold;
+}
+.bolder-parent {
+  font-weight: 400;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.bold-parent {
+  font-weight: 700;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+.bolder {
+  font-weight: bolder;
+  color: red;
+}
+.lighter {
+  font-weight: lighter;
+  color: blue;
+}
+.canvas {
+  width: 300px;
+  height: 150px;
+  border: 1px solid #000;
+  margin-top: 20px;
+}

@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/open/index",
+    "pages/a2ui/index",
+    "pages/font_weight/index",
+    "pages/transform/index",
+    "pages/filter/index",
+    "pages/chart/index",
+    "pages/streamdown/index",
+    "pages/canvas_api/index",
+    "pages/canvas/index",
+    "pages/layout/index",
+    "pages/lottie/index",
+    "pages/position/index",
+    "pages/outline/index",
+    "pages/list/index",
+    "pages/grid/index",
+    "pages/css_vars/index",
+    "pages/error_state/index",
+    "pages/font_styling/index",
+    "pages/input_textarea/index",
+    "pages/switch/switch",
+    "pages/image/index",
+    "pages/media_query/index",
+    "pages/opacity/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "Ink Demo",
+    "viewport": {
+      "width": "device-width"
+    }
+  }
+}

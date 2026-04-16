@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="page-title">Position</view>
+
+  <view class="card section">
+    <view class="title">Position: Relative</view>
+    <view class="relative-box">
+      <text class="relative-child">Relative Top 20 Left 20</text>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Position: Absolute</view>
+    <view class="relative-container">
+      <view class="absolute-child1">Absolute Top 10 Left 10</view>
+      <view class="absolute-child2">Absolute Bottom 10 Right 10</view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Position: Absolute (Inset)</view>
+    <view class="relative-container">
+      <view class="absolute-inset">Absolute Inset 20px</view>
+    </view>
+  </view>
+</view>

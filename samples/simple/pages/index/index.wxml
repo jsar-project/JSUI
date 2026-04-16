@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="page-title">Ink Simple Agent</view>
+  <view class="nav-list">
+    <view ink:for="{{list}}">
+      <view ink:if="{{item.isHeader}}" class="category-title">{{item.name}}</view>
+      <view ink:else class="card nav-item" bindtap="navigateToPage" data-path="{{item.path}}">
+        <text class="nav-text">{{item.name}}</text>
+        <text class="nav-arrow">></text>
+      </view>
+    </view>
+  </view>
+</view>

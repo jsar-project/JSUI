@@ -1,0 +1,17 @@
+<view class="container">
+  <view class="page-title">Font Weight</view>
+  <view class="card">
+    <view class="item normal">Normal (400)</view>
+    <view class="item bold">Bold (700)</view>
+    <view class="item bolder-parent">
+      Bolder Parent (400) 
+      <view class="item bolder">Bolder Child (700)</view>
+    </view>
+    <view class="item bold-parent">
+      Bold Parent (700)
+      <view class="item bolder">Bolder Child (900)</view>
+      <view class="item lighter">Lighter Child (400)</view>
+    </view>
+  </view>
+  <canvas id="myCanvas" class="canvas"></canvas>
+</view>

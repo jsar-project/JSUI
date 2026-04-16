@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="page-title">Streamdown</view>
+
+  <view class="card section">
+    <text class="section-title">Static Markdown</text>
+    <streamdown class="markdown-box" content="{{staticContent}}"></streamdown>
+  </view>
+
+  <view class="card section">
+    <text class="section-title">Streaming Markdown (Caret Animation)</text>
+    <streamdown class="markdown-box" content="{{streamingContent}}" streaming="{{isStreaming}}"></streamdown>
+    <button class="btn" bindtap="toggleStreaming">{{isStreaming ? 'Stop Streaming' : 'Start Streaming'}}</button>
+  </view>
+
+  <view class="card section">
+    <text class="section-title">Complex Elements</text>
+    <streamdown class="markdown-box" content="{{complexContent}}"></streamdown>
+  </view>
+</view>

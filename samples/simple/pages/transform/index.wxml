@@ -1,0 +1,52 @@
+<view class="container">
+  <view class="page-title">Transform</view>
+  
+  <view class="card section">
+    <text class="label">Translate (50px, 20px)</text>
+    <view class="box-container">
+      <view class="box translate"></view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <text class="label">Rotate (45deg)</text>
+    <view class="box-container">
+      <view class="box rotate"></view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <text class="label">Scale (1.5, 0.5)</text>
+    <view class="box-container">
+      <view class="box scale"></view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <text class="label">Skew (30deg, 10deg)</text>
+    <view class="box-container">
+      <view class="box skew"></view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <text class="label">Matrix (1, 0.2, 0.2, 1, 0, 0)</text>
+    <view class="box-container">
+      <view class="box matrix"></view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <text class="label">Multiple: Translate + Rotate</text>
+    <view class="box-container">
+      <view class="box multiple"></view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <text class="label">Transform Origin: top left</text>
+    <view class="box-container">
+      <view class="box origin-top-left"></view>
+    </view>
+  </view>
+</view>

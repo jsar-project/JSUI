@@ -1,0 +1,79 @@
+<view class="container">
+  <view class="page-title">Layout</view>
+  <view class="card section">
+    <view class="title">Text Align</view>
+    <view class="text-left">Left</view>
+    <view class="text-center">Center</view>
+    <view class="text-right">Right</view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Inherited Alignment (Center)</view>
+    <view class="inherited-center" style="width: 100%; background: #f7f8fa; padding: 20px;">
+      <text>This text should be centered by inheritance</text>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Inherited Color (Red)</view>
+    <view class="inherited-red">
+      <text>This text should be red by inheritance</text>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Flex Row</view>
+    <view class="flex-row">
+      <view class="item">1</view>
+      <view class="item">2</view>
+      <view class="item">3</view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Flex Column</view>
+    <view class="flex-column">
+      <view class="item">1</view>
+      <view class="item">2</view>
+      <view class="item">3</view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Justify Content: Center</view>
+    <view class="flex-row justify-center">
+      <view class="item">1</view>
+      <view class="item">2</view>
+      <view class="item">3</view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Justify Content: Space Between</view>
+    <view class="flex-row justify-between">
+      <view class="item">1</view>
+      <view class="item">2</view>
+      <view class="item">3</view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Align Items: Center</view>
+    <view class="flex-row align-center" style="height: 100px; background: #f7f8fa; border-radius: 8px;">
+      <view class="item">1</view>
+      <view class="item">2</view>
+      <view class="item">3</view>
+    </view>
+  </view>
+
+  <view class="card section">
+    <view class="title">Deep Inheritance (3+ levels)</view>
+    <view style="color: #1989fa; text-align: right; background: #f7f8fa; padding: 12px; border-radius: 8px;">
+      <view>
+        <view>
+          <text>This text should be blue and right-aligned</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

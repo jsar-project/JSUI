@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="page-title">Lottie</view>
+  <view class="card">
+    <lottie-view 
+      class="lottie"
+      src="./lottielogo.json"
+      auto-play="true"
+      loop="true"
+      speed="1.0"
+    ></lottie-view>
+    <view class="controls">
+      <button bindtap="togglePlay">Toggle Play</button>
+    </view>
+  </view>
+</view>
