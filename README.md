@@ -11,7 +11,7 @@ This repository provides developer tools, CLIs, and AI agent skills for building
 You can quickly scaffold a new JSUI Agent project using our official CLI tool. Run the following command and follow the prompts:
 
 ```bash
-npm create jsui-agent my-agent
+npm create @yodaos-pkg/jsui-agent my-agent
 ```
 
 This will generate a ready-to-use JSUI project template including:
