@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/scan/index",
+    "pages/heart_rate/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "Bluetooth Agent",
+    "viewport": {
+      "width": "device-width"
+    }
+  }
+}
