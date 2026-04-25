@@ -11,7 +11,7 @@ This repository provides developer tools, CLIs, and AI agent skills for building
 You can quickly scaffold a new AIUI Agent project using our official CLI tool. Run the following command and follow the prompts:
 
 ```bash
-npm create @yodaos-pkg/jsui-agent my-agent
+npm create @yodaos-pkg/aiui-agent my-agent
 ```
 
 This will generate a ready-to-use AIUI project template including:

@@ -11,7 +11,7 @@
 你可以使用官方 CLI 工具快速创建一个新的 AIUI Agent 项目。运行下面的命令并按提示操作：
 
 ```bash
-npm create @yodaos-pkg/jsui-agent my-agent
+npm create @yodaos-pkg/aiui-agent my-agent
 ```
 
 该命令会生成一个开箱即用的 AIUI 项目模板，其中包括：
