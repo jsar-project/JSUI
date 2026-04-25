@@ -2,3 +2,5 @@ node_modules/
 
 .trae/specs/
 .trae/documents/
+
+.DS_Store

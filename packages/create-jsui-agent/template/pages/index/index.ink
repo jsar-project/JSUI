@@ -34,7 +34,22 @@ export default {
 }
 
 .title {
+  color: #40FF5E;
+  width: 100%;
+  text-align: center;
   font-size: 24px;
+  line-height: 24px;
   margin-bottom: 20px;
+}
+
+button {
+  color: #40FF5E;
+  border: 2px solid #40FF5E;
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 100px;
+  line-height: 24px;
+  text-align: center;
 }
 </style>
