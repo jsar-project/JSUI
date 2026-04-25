@@ -1,6 +1,6 @@
-# JSUI Built-in Components Reference
+# AIUI Built-in Components Reference
 
-This reference is aligned with the current registered component list in `ink/packages/ink-builtin-components/src/lib.rs` and is meant to reflect the implementation that JSUI agents can rely on today.
+This reference is aligned with the current registered component list in `ink/packages/ink-builtin-components/src/lib.rs` and is meant to reflect the implementation that AIUI agents can rely on today.
 
 ## Common Runtime Rules
 

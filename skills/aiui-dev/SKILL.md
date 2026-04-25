@@ -1,15 +1,15 @@
 ---
-name: "jsui-dev"
-description: "Specialized agent for developing JSUI applications. Invoke when writing JSUI code, needing API references for jsui/wx, debugging JSUI applications, or aligning JSUI visual design with this Skill's design guidelines."
+name: "aiui-dev"
+description: "Specialized agent for developing AIUI applications. Invoke when writing AIUI code, needing API references for jsui/wx, debugging AIUI applications, or aligning AIUI visual design with this Skill's design guidelines."
 ---
 
-# JSUI Agent Developer Guide
+# AIUI Agent Developer Guide
 
-This guide provides independent and comprehensive context for AI agents developing JSUI applications. It includes project structure, SFC `.ink` support specifications, and standard API references, designed to help Large Language Models (LLMs) generate accurate JSUI pages and logic code.
+This guide provides independent and comprehensive context for AI agents developing AIUI applications. It includes project structure, SFC `.ink` support specifications, and standard API references, designed to help Large Language Models (LLMs) generate accurate AIUI pages and logic code.
 
 ## 1. Project Structure
 
-A standard JSUI application project typically contains the following core files:
+A standard AIUI application project typically contains the following core files:
 
 - `AGENTS.md`: The agent manifest, defining the agent's identity and capabilities.
 - `app.json`: Global configuration, including page routes, window settings, etc.
@@ -25,7 +25,7 @@ The manifest file defines the agent's basic information and required permissions
 # Agent Manifest
 
 ## Identity
-- **Name**: My JSUI Agent
+- **Name**: My AIUI Agent
 - **Version**: 1.0.0
 - **Description**: A brief application description.
 - **Author**: Developer Name
@@ -50,7 +50,7 @@ Defines application page paths and global UI styles:
     "pages/index/index"
   ],
   "window": {
-    "navigationBarTitleText": "My JSUI Agent",
+    "navigationBarTitleText": "My AIUI Agent",
     "viewport": {
       "width": "device-width"
     }
@@ -60,7 +60,7 @@ Defines application page paths and global UI styles:
 
 ### 1.3 Application Registration (app.js)
 
-JSUI uses an ES module-based registration system, registering the application by exporting a default configuration object:
+AIUI uses an ES module-based registration system, registering the application by exporting a default configuration object:
 
 ```javascript
 export default {
@@ -75,7 +75,7 @@ export default {
 
 ### 1.4 Page Configuration (page.json)
 
-In JSUI, each page acts as a Model Context Protocol (MCP) UI component. The configuration for each page is defined in its respective `page.json` (or within the `<script def>` block of an `.ink` file). This configuration declares the page's capabilities and the expected input parameters for rendering.
+In AIUI, each page acts as a Model Context Protocol (MCP) UI component. The configuration for each page is defined in its respective `page.json` (or within the `<script def>` block of an `.ink` file). This configuration declares the page's capabilities and the expected input parameters for rendering.
 
 Key fields in page configuration:
 - `description`: A clear, natural language description of what the page UI represents or what task it accomplishes. This helps the AI or system understand the page's purpose.
@@ -113,7 +113,7 @@ Key fields in page configuration:
 
 ## 2. Single File Component (SFC) `.ink` Specification
 
-In JSUI, page development is recommended to use the Single File Component (SFC) format, which is the `.ink` file. This format centralizes the page's configuration, logic, structure, and style in a single file.
+In AIUI, page development is recommended to use the Single File Component (SFC) format, which is the `.ink` file. This format centralizes the page's configuration, logic, structure, and style in a single file.
 
 A standard `.ink` file structure contains four main tag blocks:
 
@@ -136,7 +136,7 @@ import wx from 'wx';
 
 export default {
   data: {
-    greeting: 'Hello JSUI!'
+    greeting: 'Hello AIUI!'
   },
   onLoad() {
     console.log('Page loaded');
@@ -174,7 +174,7 @@ export default {
 
 ## 3. WXML (WeiXin Markup Language) & Components
 
-In JSUI, the structure of a page is described using WXML (WeiXin Markup Language), which is used within the `<page>` tag of an `.ink` file (or a standalone `.wxml` file). It allows you to build user interfaces using components, data binding, and conditional rendering.
+In AIUI, the structure of a page is described using WXML (WeiXin Markup Language), which is used within the `<page>` tag of an `.ink` file (or a standalone `.wxml` file). It allows you to build user interfaces using components, data binding, and conditional rendering.
 
 ### 3.1 Basic Syntax and Data Binding
 
@@ -193,7 +193,7 @@ WXML uses double curly braces `{{ }}` for data binding. You can bind properties 
 
 ### 3.2 Directives (Conditional Rendering)
 
-JSUI supports conditional rendering using the `ink:if`, `ink:elif`, and `ink:else` directives to control whether a component is rendered based on a condition.
+AIUI supports conditional rendering using the `ink:if`, `ink:elif`, and `ink:else` directives to control whether a component is rendered based on a condition.
 
 ```html
 <view ink:if="{{condition === 1}}"> Rendered if condition is 1 </view>
@@ -201,11 +201,11 @@ JSUI supports conditional rendering using the `ink:if`, `ink:elif`, and `ink:els
 <view ink:else> Rendered otherwise </view>
 ```
 
-> **Important Note:** JSUI's WXML implementation currently **does not support list rendering** (e.g., `wx:for` or `ink:for` are NOT supported). If you need to render lists, you should handle the logic manually in JavaScript or flatten the UI structure as needed.
+> **Important Note:** AIUI's WXML implementation currently **does not support list rendering** (e.g., `wx:for` or `ink:for` are NOT supported). If you need to render lists, you should handle the logic manually in JavaScript or flatten the UI structure as needed.
 
 ### 3.3 Built-in Components
 
-JSUI provides a set of built-in components that you can use within your WXML templates. These components are mapped to native implementations for optimal performance.
+AIUI provides a set of built-in components that you can use within your WXML templates. These components are mapped to native implementations for optimal performance.
 
 For parameter-by-parameter documentation, event behavior, content model notes, and examples, see [components.md](./components.md). The reference there is intentionally aligned with the current component registry and implementation details in `ink-builtin-components`.
 
@@ -250,7 +250,7 @@ WXSS extends standard CSS with features tailored for mobile and wearable devices
 
 ### 4.2 Selectors
 
-JSUI supports most standard CSS selectors:
+AIUI supports most standard CSS selectors:
 - **Class Selector (`.class`)**: The recommended way to style components.
 - **ID Selector (`#id`)**.
 - **Type Selector (`element`)**: e.g., `view`, `text`.
@@ -260,7 +260,7 @@ JSUI supports most standard CSS selectors:
 
 ### 4.3 Flexbox Layout
 
-JSUI's view engine provides robust support for Flexbox. It is the primary and recommended method for building responsive layouts in JSUI.
+AIUI's view engine provides robust support for Flexbox. It is the primary and recommended method for building responsive layouts in AIUI.
 
 ```css
 .container {
@@ -273,7 +273,7 @@ JSUI's view engine provides robust support for Flexbox. It is the primary and re
 
 ## 5. Design Guidelines
 
-When developing JSUI applications, especially for wearable devices, it is crucial to follow these design guidelines to ensure a consistent and user-friendly experience.
+When developing AIUI applications, especially for wearable devices, it is crucial to follow these design guidelines to ensure a consistent and user-friendly experience.
 
 ### 5.1 Dimensions and Layout
 
@@ -296,13 +296,13 @@ When developing JSUI applications, especially for wearable devices, it is crucia
 
 - 🚫 **DO NOT use large areas of solid color blocks.** This can be visually overwhelming and uncomfortable on wearable displays. Keep backgrounds subtle and use colors primarily for accents, text, and interactive elements.
 
-## 6. JSUI API Reference
+## 6. AIUI API Reference
 
-JSUI aims to provide a development experience that conforms to modern Web standards while also maintaining compatibility with the WeChat Mini Program ecosystem to facilitate smooth migration and code reuse. The APIs are divided into two main categories: **Web APIs** and **WeChat Compatible APIs**.
+AIUI aims to provide a development experience that conforms to modern Web standards while also maintaining compatibility with the WeChat Mini Program ecosystem to facilitate smooth migration and code reuse. The APIs are divided into two main categories: **Web APIs** and **WeChat Compatible APIs**.
 
 ### 6.1 Web APIs
 
-JSUI supports the WinterCG (Web-interoperable Runtimes Community Group) Minimum Common Web API and several other critical Web standards, optimized for wearable devices.
+AIUI supports the WinterCG (Web-interoperable Runtimes Community Group) Minimum Common Web API and several other critical Web standards, optimized for wearable devices.
 
 - **Console API**: Standard debugging output interface (`console.log`, `info`, `warn`, `error`, `debug`, `group`, `groupEnd`).
 - **Window API**: Basic global environment interfaces (`window`, `self`, `global`, `setTimeout`, `setInterval`, `clearTimeout`, `clearInterval`, `atob`, `btoa`).
@@ -326,7 +326,7 @@ const results = await detector.detect({ data, width, height });
 
 **Speech Synthesis**
 ```javascript
-const utterance = new SpeechSynthesisUtterance('Hello, welcome to JSUI');
+const utterance = new SpeechSynthesisUtterance('Hello, welcome to AIUI');
 utterance.lang = 'en-US';
 utterance.rate = 1.0;
 speechSynthesis.speak(utterance);
@@ -334,7 +334,7 @@ speechSynthesis.speak(utterance);
 
 ### 6.2 WeChat Compatible APIs (`wx.*`)
 
-To allow developers to reuse existing Mini Program code and resources, JSUI provides a set of APIs compatible with WeChat Mini Programs.
+To allow developers to reuse existing Mini Program code and resources, AIUI provides a set of APIs compatible with WeChat Mini Programs.
 
 #### Base / System
 - `wx.canIUse(schema)`: Check API support.
@@ -377,5 +377,5 @@ console.log('Image data size:', photo.data.byteLength);
 ### Crypto & UUID Generation
 ```javascript
 const uuid = crypto.randomUUID();
-const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('hello JSUI'));
+const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('hello AIUI'));
 ```
