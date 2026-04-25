@@ -1,6 +1,6 @@
 ---
 name: "jsui-dev"
-description: "Specialized agent for developing JSUI applications. Invoke when writing JSUI code, needing API references for jsui/wx, or debugging JSUI applications."
+description: "Specialized agent for developing JSUI applications. Invoke when writing JSUI code, needing API references for jsui/wx, debugging JSUI applications, or aligning JSUI visual design with this Skill's design guidelines."
 ---
 
 # JSUI Agent Developer Guide
@@ -280,6 +280,8 @@ When developing JSUI applications, especially for wearable devices, it is crucia
 - **Width**: The application width is strictly **480px**.
 - **Height**: The recommended application height is between **120px and 380px**. Avoid creating overly tall pages that require excessive scrolling.
 - **Card Style**: It is highly recommended to use a **Card Style** layout for each page. This provides a clear boundary and better visual focus in the spatial environment.
+- **Default Background**: Use **black** as the default background color.
+- **Default Border**: Use a **2px** border as the default border width for cards and key interactive elements.
 - **Border Radius**: The recommended border radius (e.g., for cards, buttons, and images) is **12px**.
 
 ### 5.2 Color Palette
@@ -288,6 +290,7 @@ When developing JSUI applications, especially for wearable devices, it is crucia
   - 100% Opacity: `#40FF5E` (Main elements, active states)
   - 60% Opacity: `rgba(64, 255, 94, 0.6)` (Secondary elements, hover states)
   - 40% Opacity: `rgba(64, 255, 94, 0.4)` (Background highlights, disabled states)
+- **Default Text Color**: Use the Primary Color `#40FF5E` as the default text color unless a more specific semantic color is required.
 
 ### 5.3 Prohibitions
 
