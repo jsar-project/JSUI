@@ -46,5 +46,5 @@ Skill 用于辅助开发和生成集成代码，不会代替 SK，也不会自�
 ## 下一步
 
 - [获取账号 Token](./account-token.md)：系统智能体的账号接口。
-- [暂存消息](./message-cache.md)：保留 10 分钟、覆盖写入且只能消费一次的消息。
+- [消息服务](./messaging.md)：暂存保留 10 分钟、覆盖写入且只能消费一次的消息。
 - [通知下发](./notifications.md)：向 Rokid Glasses 用户推送文本或页面跳转通知。

@@ -1,4 +1,4 @@
-# Cache an AIUI message
+# Messaging
 
 The message cache endpoint lets a server store one message for the current account and a specific AIUI agent. A later page or process consumes it once through `getAIUICacheMessage`. This endpoint is not part of the AIUI OpenAPI.
 

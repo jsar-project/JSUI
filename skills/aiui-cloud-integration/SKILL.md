@@ -8,8 +8,10 @@ description: "Integrate server-side AIUI agents with Rokid account lookup, one-t
 Use this skill for server-side AIUI cloud integrations. Choose the relevant
 reference instead of loading every API contract:
 
-- For the official-agent-only account token endpoint or the one-time AIUI
-  message cache, read [references/account-services.md](references/account-services.md).
+- For the system-agent-only account token endpoint, read
+  [references/account-services.md](references/account-services.md).
+- For temporarily storing a message for an agent to consume once, read
+  [references/messaging.md](references/messaging.md).
 - For Rokid Glasses notification delivery and notification-triggered page
   navigation, read [references/notifications.md](references/notifications.md).
 
@@ -41,6 +43,11 @@ await cloud.sendNotification({
   },
 })
 ```
+
+When Node.js is not appropriate, use the complete `curl` examples in the
+relevant reference. Preserve the documented endpoint, authentication header,
+and JSON field naming; the SDK uses camelCase while some HTTP APIs use
+snake_case.
 
 The account `accessToken` and notification `token` (Rokid account SK) are
 different credentials. Keep both server-side in environment variables or a

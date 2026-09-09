@@ -1,7 +1,7 @@
 # AIUI Account Services
 
-These server endpoints use an account-center credential in the `access_token`
-header. They are not AIUI-side OpenAPI methods. With the npm package, configure
+This server endpoint uses an account-center credential in the `access_token`
+header. It is not an AIUI-side OpenAPI method. With the npm package, configure
 `accessToken` and an explicit `aiuiEndpoint`; the contract does not specify a
 universal AIUI host.
 
@@ -18,32 +18,13 @@ const cloud = new CloudIntegration({
 const value = await cloud.getToken()
 ```
 
-The HTTP form is `GET /account/v1/token` with the `access_token` header. A
-successful response has a string schema. Treat the body as opaque; do not
-invent JSON fields. Invalid authentication returns `401`.
+Use `curl` when the integration does not run on Node.js:
 
-## Cache an AIUI message
-
-```js
-await cloud.saveTemporaryMessage('agent-id', '/pages/agent/message', {
-  customData: 'custom-data',
-  content: 'You have a new agent message.',
-})
+```bash
+curl --location "${AIUI_ENDPOINT}/account/v1/token" \
+  --header "access_token: ${ACCOUNT_ACCESS_TOKEN}"
 ```
 
-The HTTP form is `POST /metis/openApi/v1/cacheAIUIMessage`, with
-`Content-Type: application/json` and `access_token`. The SDK maps
-`targetAgentId` to the HTTP body's `agentId`; `targetAgentId`, `path`,
-`data.customData`, and `data.content` are required non-empty strings.
-Authentication determines the account; never add `accountId` or `access_token`
-to the JSON body.
-
-The cache is isolated by authenticated account ID and `agentId`, expires after
-10 minutes, and replaces an earlier value for the same pair. It is not a
-queue. `getAIUICacheMessage` atomically consumes and deletes the value, so do
-not design for repeated reads.
-
-The common response contains numeric `code`, string `msg`, millisecond
-`timestamp`, request `uuid`, and object `data`. Only `code === 1` is success.
-Validate `path`, `customData`, and `content` before using them for navigation or
-rendering. Redact credentials and sensitive payloads from diagnostics.
+The HTTP method is `GET`, with the `access_token` header. A successful response
+has a string schema. Treat the body as opaque; do not invent JSON fields.
+Invalid authentication returns `401`.

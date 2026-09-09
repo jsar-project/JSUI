@@ -946,8 +946,8 @@
         "children": []
       },
       {
-        "id": "message-cache",
-        "label": "暂存消息",
+        "id": "messaging",
+        "label": "消息服务",
         "children": []
       },
       {

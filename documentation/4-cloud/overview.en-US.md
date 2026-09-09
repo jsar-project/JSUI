@@ -46,5 +46,5 @@ The Skill assists development and code generation. It does not replace the SK or
 ## Next step
 
 - [Get an account token](./account-token.en-US.md) covers the official-platform-agent account endpoint.
-- [Cache an AIUI message](./message-cache.en-US.md) covers the 10-minute, replacement-based, one-time message cache.
+- [Messaging](./messaging.en-US.md) covers temporary messages that expire after 10 minutes, replace earlier values, and are consumed once.
 - [Sending notifications](./notifications.en-US.md) covers text and page-navigation notifications for Rokid Glasses users.
