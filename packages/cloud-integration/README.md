@@ -122,7 +122,7 @@ server-side business failures.
 ### `client.getToken()`
 
 Calls `GET /account/v1/token` and resolves with the response body as a string.
-The endpoint is available only to official platform agents. It requires
+The endpoint is available only to system agents. It requires
 `accessToken` and `aiuiEndpoint`.
 
 ### `client.saveTemporaryMessage(targetAgentId, path, data)`

@@ -7,7 +7,7 @@ universal AIUI host.
 
 ## Get the account token
 
-`getToken` is available only to official platform agents:
+`getToken` is available only to system agents:
 
 ```js
 const cloud = new CloudIntegration({

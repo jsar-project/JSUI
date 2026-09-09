@@ -2,7 +2,7 @@
 
 AIUI Cloud provides server-side integration capabilities that connect third-party systems with Rokid cloud services and Glasses devices. Business services, scheduled jobs, and external agents can use it to turn cloud events into information that users can receive and act on through their Glasses.
 
-Cloud integration currently covers three capabilities: official platform agents can read an account token, servers can cache a one-time message by account and agent, and third-party systems can notify a specific user or open a registered AIUI page when the notification is selected.
+Cloud integration currently covers three capabilities: system agents can read an account token, servers can cache a one-time message by account and agent, and third-party systems can notify a specific user or open a registered AIUI page when the notification is selected.
 
 ## Integration options
 

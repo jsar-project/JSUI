@@ -117,7 +117,7 @@ export class CloudIntegration {
   /**
    * Gets account information or an account token for the authenticated account.
    *
-   * This endpoint is available only to official platform agents. Its response
+   * This endpoint is available only to system agents. Its response
    * is an opaque JSON string; callers must not assume an undocumented internal
    * object structure.
    *

@@ -947,7 +947,7 @@
       },
       {
         "id": "message-cache",
-        "label": "消息缓存",
+        "label": "暂存消息",
         "children": []
       },
       {

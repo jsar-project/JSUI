@@ -1,6 +1,6 @@
 # Get an account token
 
-`getToken` is a server-side account endpoint for official platform agents. It retrieves the account information or account token associated with the supplied credential. It is not part of the AIUI OpenAPI and is unavailable to third-party agents.
+`getToken` is a server-side account endpoint for system agents. It retrieves the account information or account token associated with the supplied credential. It is not part of the AIUI OpenAPI and is unavailable to third-party agents.
 
 ## Use the npm package
 

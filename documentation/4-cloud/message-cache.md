@@ -1,6 +1,6 @@
-# 缓存 AIUI 消息
+# 暂存消息
 
-消息缓存接口让服务端按当前账号和指定 AIUI 智能体暂存一条消息，供后续页面或进程通过 `getAIUICacheMessage` 一次性消费。它不属于 AIUI 侧 OpenAPI。
+暂存消息接口让服务端按当前账号和指定智能体暂存一条消息，供后续页面或进程通过 `getAIUICacheMessage` 一次性消费。它不属于 AIUI 侧 OpenAPI。
 
 ## 使用 npm 包
 
